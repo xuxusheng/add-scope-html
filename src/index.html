@@ -1,0 +1,75 @@
+<div id="article">
+    <ul class="">
+        <li>每一个标签</li>
+        <li>都加了上自定义属性 xusheng</li>
+    </ul>
+</div>
+
+<div class="demo">
+    <p class="title">css文件如下：</p>
+    <pre>
+        <code>
+        div {
+            margin: 0 auto;
+            width: 1000px;
+            font-size: 1.5em;
+        }
+        div.wrap ul.list li.item {
+            transition: all 1s;
+        }
+
+        div.wrap ul.list li.item:hover {
+            color: red;
+            font-size: 1.2em;
+        }
+
+        div#article > ul ~ li {
+            font-weight: bold;
+        }
+
+        div.demo {
+            border: 1px solid #ccc;
+            box-shadow: 1px 1px 4px #444;
+        }
+
+        .title {
+            text-indent: 2em;
+            color: red;
+        }
+        </code>
+    </pre>
+</div>
+<div class="demo">
+    <p class="title">打包后css文件如下：</p>
+    <pre>
+        <code>
+        div[xusheng] {
+            margin: 0 auto;
+            width: 1000px;
+            font-size: 1.5em;
+        }
+        div.wrap[xusheng] ul.list[xusheng] li.item[xusheng] {
+            transition: all 1s;
+        }
+
+        div.wrap[xusheng] ul.list[xusheng] li.item:hover[xusheng] {
+            color: red;
+            font-size: 1.2em;
+        }
+
+        div#article > ul[xusheng] ~ li[xusheng] {
+            font-weight: bold;
+        }
+
+        div.demo[xusheng] {
+            border: 1px solid #ccc;
+            box-shadow: 1px 1px 4px #444;
+        }
+
+        .title[xusheng] {
+            text-indent: 2em;
+            color: red;
+        }
+        </code>
+    </pre>
+</div>

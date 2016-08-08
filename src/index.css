@@ -1,0 +1,27 @@
+div {
+    margin: 0 auto;
+    width: 1000px;
+    font-size: 1.5em;
+}
+div.wrap ul.list li.item {
+    transition: all 1s;
+}
+
+div.wrap ul.list li.item:hover {
+    color: red;
+    font-size: 1.2em;
+}
+
+div#article > ul ~ li {
+    font-weight: bold;
+}
+
+div.demo {
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 4px #444;
+}
+
+.title {
+    text-indent: 2em;
+    color: red;
+}
