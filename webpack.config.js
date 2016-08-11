@@ -4,6 +4,8 @@ let webpack = require('webpack')
 let ExtractTextPlugin = require('extract-text-webpack-plugin')
 let HtmlWebpackPlugin = require('html-webpack-plugin')
 let attrLoader = require('./tools/attr-loader')
+let precss = require('precss')
+let htmlLoader = require('./tools/html-loader/loader')
 
 const ROOT_PATH = path.resolve(__dirname)
 const SRC_PATH = path.resolve(ROOT_PATH, 'src')
@@ -13,7 +15,8 @@ module.exports = (() => {
     let config = {}
 
     config.resolve = {
-        modulesDirectories: ['node_modules', 'tools']
+        modulesDirectories: ['node_modules'],
+        extensions: ['', '.ts', '.js']
     }
 
     config.entry = {
@@ -28,7 +31,10 @@ module.exports = (() => {
     config.module = {
         loaders: [{
             test: /\.css$/,
-            loader: ExtractTextPlugin.extract('style-loader', 'css-loader!' + attrLoader() + '?scope=xusheng')
+            loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules!css-attr-scope-loader?scope=xusheng')
+        }, {
+            test: /\.scss$/,
+            loader: ExtractTextPlugin.extract('style', 'css?modules!css-attr-scope-loader?scope=xusheng!postcss?parser=postcss-scss')
         }, {
             test: /\.json$/,
             loader: 'json'
@@ -41,9 +47,17 @@ module.exports = (() => {
             exclude: /node_modules/
         }, {
             test: /\.html$/,
-            loader: 'html'
+            loader: htmlLoader()
         }]
     }
+
+    config.postcss = [
+        precss({
+            import: {
+                extension: 'scss'
+            }
+        })
+    ];
 
     config.plugins = [
         new ExtractTextPlugin("style.css"),
