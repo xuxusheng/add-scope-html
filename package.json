@@ -1,7 +1,7 @@
 {
-  "name": "add-scope-html",
+  "name": "html-attr-scope-loader-example",
   "version": "1.0.0",
-  "description": "在html中给每个标签加上自定义属性",
+  "description": "通过给html以及css加上自定义属性实现模块化",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
