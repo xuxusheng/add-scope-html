@@ -3,16 +3,18 @@ div {
     width: 1000px;
     font-size: 1.5em;
 }
-div.wrap ul.list li.item {
+div.wrap ul.list:hover li.item {
     transition: all 1s;
 }
 
-div.wrap ul.list li.item:hover {
+div.wrap ul.list::after li.item:hover {
     color: red;
     font-size: 1.2em;
 }
 
-div#article > ul ~ li {
+div#article > ul::before ~ li,
+.xusheng::after,
+.xu > .sheng::before {
     font-weight: bold;
 }
 
@@ -23,5 +25,17 @@ div.demo {
 
 .title {
     text-indent: 2em;
+    color: red;
+}
+
+.after::after {
+    content: '123';
+    display: 'block';
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+}
+
+.hover:hover {
     color: red;
 }

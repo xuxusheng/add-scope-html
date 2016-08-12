@@ -5,7 +5,7 @@ let ExtractTextPlugin = require('extract-text-webpack-plugin')
 let HtmlWebpackPlugin = require('html-webpack-plugin')
 let attrLoader = require('./tools/attr-loader')
 let precss = require('precss')
-let htmlLoader = require('./tools/html-loader/loader')
+// let htmlLoader = require('./tools/html-loader/loader')
 
 const ROOT_PATH = path.resolve(__dirname)
 const SRC_PATH = path.resolve(ROOT_PATH, 'src')
@@ -47,7 +47,7 @@ module.exports = (() => {
             exclude: /node_modules/
         }, {
             test: /\.html$/,
-            loader: htmlLoader()
+            loader: 'html-attr-scope'
         }]
     }
 
